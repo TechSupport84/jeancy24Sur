@@ -1,0 +1,25 @@
+.bar-content{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px auto;
+    padding: 20px,
+
+}
+.bar-content>h1{
+    font-weight: bold;
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+.bar-content:hover{
+    color: #343;
+}
+.bar-content>h2{
+    font-weight: bold;
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}

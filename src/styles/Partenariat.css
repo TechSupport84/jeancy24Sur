@@ -1,0 +1,87 @@
+/* Partenariat.css */
+.partenariat-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header-screen {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header-screen h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .subtitle {
+    display: block;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .partenariat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  .input-group input {
+    width: 48%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .button-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .arrow-icon {
+    font-size: 2rem;
+    color: #007bff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow-icon:hover {
+    transform: translateY(-5px);
+  }
+  
+  @media (max-width: 768px) {
+    .input-group input {
+      width: 100%;
+    }
+  
+    .button-arrow {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .arrow-icon {
+      margin-top: 1rem;
+    }
+  }
+  
