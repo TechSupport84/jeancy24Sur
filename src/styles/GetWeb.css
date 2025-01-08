@@ -2,6 +2,9 @@
 .get-web-container {
     padding: 2rem;
     font-family: Arial, sans-serif;
+    margin-top:10em;
+    padding:10em;
+    
   }
   .header-screen{
     display: flex;

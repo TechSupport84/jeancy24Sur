@@ -1,9 +1,11 @@
-.bar-content{
+/* .bar-content{
     display:flex;
     justify-content: space-evenly;
     align-items: center;
     margin: 10px auto;
-    padding: 20px,
+    padding: 10px;
+    margin-top:10px;
+  
 
 }
 .bar-content>h1{
@@ -22,4 +24,55 @@
     font-weight: 400;
     font-style: normal;
 
+} */
+
+.containert {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding-top: 60px; /* Adjust this value based on your navbar height */
+}
+
+.bar-content {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.bar-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.bar-content h2 {
+    font-size: 1.5rem;
+    color: #34495e;
+}
+
+.bar-content h2 span {
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .bar-content {
+        padding: 1.5rem;
+    }
+
+    .bar-content h1 {
+        font-size: 2rem;
+    }
+
+    .bar-content h2 {
+        font-size: 1.2rem;
+    }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import "../styles/HomePage.css"
 import ServiceCard from '../components/ServiceCard'
+import Footer from '../components/Footer'
 function HomePage() {
   return (
     <div className='containert'>
@@ -9,7 +10,9 @@ function HomePage() {
         <h2>Change Your To <span>Today</span></h2>
         </div>
         <ServiceCard/>
-       
+       <div className="footer">
+       <Footer/>
+       </div>
     </div>
   )
 }

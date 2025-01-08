@@ -1,16 +1,24 @@
-/* NavBar.css */
 header {
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem 5%;
-  }
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;  
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  max-height: calc(100vh - 2rem); 
   
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+
+}
   
   .logo img {
     max-height: 50px;
@@ -35,10 +43,12 @@ header {
     font-weight: 600;
     color: #333333;
     transition: color 0.3s;
+    font-size: 18;
   }
   
   .nav-container ul li a:hover {
     color: #007bff;
+    transform: 1s ease ;
   }
   
   .middle-item {
