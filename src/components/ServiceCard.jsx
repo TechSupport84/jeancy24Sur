@@ -36,6 +36,8 @@ function ServiceCard() {
       </div>
     </div>
     <ButtonAction title={"Get  Service Now"} onClick={()=>navigate("/ChoicePage")}/>
+    <ButtonAction title={"Apply  Now "} onClick={()=>navigate("/Application")}/>
+     
   </div>
   )
 }

@@ -11,6 +11,7 @@ import ChoicePage from '../pages/ChoicePage'
 import Contact from '../helpers/Contact'
 import Login from '../screens/Login'
 import Register from '../screens/Register'
+import Application from '../components/Application'
 export default function AppRouter() {
   return (
     <Router>
@@ -26,6 +27,7 @@ export default function AppRouter() {
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/Login' element={<Login/>}/>
             <Route path='/Register' element={<Register/>}/>
+            <Route path="/Application" element={<Application/>}/>
         </Routes>
     </Router>
   )
