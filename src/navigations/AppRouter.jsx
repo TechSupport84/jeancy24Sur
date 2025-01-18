@@ -15,6 +15,8 @@ import Application from '../components/Application';
 import { useAuth } from '../context/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
 import Forum from '../app/Forum';
+import Dashboard from '../dashboard/Dashboard';
+
 export default function AppRouter() {
   const { user } = useAuth();
 
@@ -25,13 +27,18 @@ export default function AppRouter() {
         <Route path="/" element={<HomePage />} />
 
         {/* Protected routes */}
-        <Route path="/getWeb" element={<ProtectedRoute element={<GetWeb />} />} />
-        <Route path="/getmobile" element={<ProtectedRoute element={<GetMobile />} />} />
-        <Route path="/getEcommerce" element={<ProtectedRoute element={<GetEcommerce />} />} />
-        <Route path="/partenariat" element={<ProtectedRoute element={<Partenariat />} />} />
-        <Route path="/ChoicePage" element={<ProtectedRoute element={<ChoicePage />} />} />
-        <Route path="/continueApp" element={<ProtectedRoute element={<ContinueApp />} />} />
-        <Route path="/Application" element={<ProtectedRoute element={<Application />} />} />
+        <Route path="/getWeb" element={<GetWeb />} />
+        <Route path="/getmobile" element={<GetMobile />} />
+        <Route path="/getEcommerce" element={<GetEcommerce />} />
+        <Route path="/partenariat" element={<Partenariat />} />
+        <Route path="/ChoicePage" element={<ChoicePage />} />
+        <Route path="/continueApp" element={<ContinueApp />} />
+        <Route path="/Application" element={<Application />} />
+        {user && user.role === "admin"&&(
+        <Route path="/Dashboard" element={<Dashboard />} />
+        )}
+
+        
         <Route path="/forum" element={<ProtectedRoute element={<Forum />} />} />
 
         {/* Unprotected routes */}

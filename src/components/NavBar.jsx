@@ -8,9 +8,9 @@ function NavBar() {
   const navigate = useNavigate();
 
   const handleLogout = (e) => {
-    e.preventDefault(); 
-    logout(); 
-    navigate('/'); 
+    e.preventDefault();
+    logout();
+    navigate('/');
   };
 
   return (
@@ -20,23 +20,28 @@ function NavBar() {
           <img src='/jeancy24Sur.com.png' alt='Logo' />
           <span className='four-two'>24/24h</span>
         </div>
-        
+
         <ul className='middle-item'>
           <li><a href='/'>Service</a></li>
           <li><a href='/partenariat'>Partenariat</a></li>
         </ul>
-        <ul className='left-item'>
-        {user && (
-       <li className="nav-item">
-          <a href="#" className="username-link">{user.username}</a>
-        </li>
-      )}
 
-          <li><a href='contact'>Contact Us</a></li>
-          {user || token ? ( // Check if the user is logged in or if a token exists
-            <>
-              <li><a href='/logout' onClick={handleLogout}>Logout</a></li>
-            </>
+        <ul className='left-item'>
+           {user && user.role ==="admin" &&(
+            <li><a href='/Dashboard'>Dashboard</a></li>
+           )}
+            
+        </ul>
+
+        <ul className='left-item'>
+          {user && (
+            <li className="nav-item">
+              <a href="#" className="username-link">{user.username}</a>
+            </li>
+          )}
+          <li><a href='/contact'>Contact Us</a></li>
+          {user || token ? (
+            <li><a href='/logout' onClick={handleLogout}>Logout</a></li>
           ) : (
             <li><a href='/Login'>Login</a></li>
           )}

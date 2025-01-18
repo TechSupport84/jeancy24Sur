@@ -13,8 +13,10 @@ function Forum() {
   const [description, setDescription] = useState('');
   const [posts, setPosts] = useState([]);
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState({});  // Object to store comments for each post
+  const [error, setError] = useState('');
 
-  const { token, user } = useAuth();  // Access currentUser from the AuthContext
+  const { token, user } = useAuth();
 
   const threads = [
     { title: 'General Discussion', description: 'Talk about anything here!', posts: 12, icon: <FaComments /> },
@@ -23,6 +25,35 @@ function Forum() {
     { title: 'Off-topic', description: 'A space for non-related discussions.', posts: 8, icon: <FaSmile /> },
   ];
 
+  // Fetch comments when posts change
+  useEffect(() => {
+    const fetchCommentsForPosts = async () => {
+      try {
+        const commentRequests = posts.map(post =>
+          axios.get(`${API_URL}/comment/${post.id}/comments`, {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+        );
+        
+        const commentResponses = await Promise.all(commentRequests);
+        const newComments = commentResponses.reduce((acc, response, index) => {
+          acc[posts[index].id] = response.data.comments;
+          return acc;
+        }, {});
+        
+        setComments(newComments);  // Store comments for each post by post ID
+      } catch (error) {
+        console.log('Error fetching comments:', error);
+        setError(error.message);
+      }
+    };
+
+    if (posts.length > 0) {
+      fetchCommentsForPosts();
+    }
+  }, [posts, token]);  // Depend on posts and token
+
+  // Fetch posts on mount
   useEffect(() => {
     const getAllPosts = async () => {
       try {
@@ -86,18 +117,27 @@ function Forum() {
     }
   };
 
-  const handleAddComment = async (postId, comment) => {
-    if (!comment) {
+  const handleAddComment = async (postId, commentBody) => {
+    if (!commentBody) {
       return alert('Please enter a comment');
     }
+
     try {
       const response = await axios.post(
-        `${API_URL}/post/comment/${postId}`,
-        { comment },
+        `${API_URL}/comment/${postId}/newComment`,
+        { commentBody },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      alert('Comment added successfully!');
-      setComment('');  // Clear the comment input after successful addition
+      setComment(''); // Clear the comment input field
+
+      // After adding comment, refetch comments for the post
+      const updatedComments = await axios.get(`${API_URL}/comment/${postId}/comments`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setComments((prevComments) => ({
+        ...prevComments,
+        [postId]: updatedComments.data.comments,
+      }));
     } catch (error) {
       console.error('Error adding comment:', error);
       alert('Failed to add comment. Please try again later.');
@@ -168,6 +208,24 @@ function Forum() {
                   />
                   <button onClick={() => handleAddComment(post.id, comment)}>Add Comment</button>
                 </div>
+
+                <div className="comments-body">
+  <h3>Comments</h3>
+  <div className="comments-list">
+    {comments[post.id]?.map((comment, commentIndex) => (
+      <div key={commentIndex} className="comment-item">
+        <div className="comment-header">
+          <span className="comment-author">{comment.user.username}</span>
+          <span className="comment-date">{formatDate(comment.createdAt)}</span>
+        </div>
+        <p className="comment-body">{comment.commentBody}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
               </div>
             ))
           ) : (
