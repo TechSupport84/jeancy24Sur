@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Register.css';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -7,7 +9,12 @@ function Register() {
     email: '',
     password: '',
     confirmPassword: '',
+    country: '',
   });
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+
+  const { register, loading } = useAuth();
 
   const handleChange = (e) => {
     setFormData({
@@ -16,15 +23,68 @@ function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Reset error messages before form submission
+    setError('');
+
+    // Check for empty fields
+    if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword || !formData.country) {
+      setError('All fields are required. Please fill in all the details.');
+      return;
+    }
+
+    // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match!');
-    } else {
-      // Handle registration logic (e.g., API request)
-      console.log('Registration data submitted:', formData);
+      setError('The passwords you entered do not match. Please check and try again.');
+      return;
+    }
+
+    try {
+      // Send only the country name, not the country code
+      await register(formData.name, formData.email, formData.password, formData.country);
+      navigate("/Login");
+
+    } catch (err) {
+      setError('We encountered an issue while creating your account. Please try again later.');
     }
   };
+
+  const countries = [
+    { name: 'Nigeria', code: '+234' },
+    { name: 'South Africa', code: '+27' },
+    { name: 'Egypt', code: '+20' },
+    { name: 'Kenya', code: '+254' },
+    { name: 'Uganda', code: '+256' },
+    { name: 'Ghana', code: '+233' },
+    { name: 'Ethiopia', code: '+251' },
+    { name: 'Tanzania', code: '+255' },
+    { name: 'Morocco', code: '+212' },
+    { name: 'Algeria', code: '+213' },
+    { name: 'Angola', code: '+244' },
+    { name: 'Senegal', code: '+221' },
+    { name: 'Zimbabwe', code: '+263' },
+    { name: 'Cote d\'Ivoire', code: '+225' },
+    { name: 'Sudan', code: '+249' },
+    { name: 'Rwanda', code: '+250' },
+    { name: 'Malawi', code: '+265' },
+    { name: 'Mozambique', code: '+258' },
+    { name: 'Cameroon', code: '+237' },
+    { name: 'Madagascar', code: '+261' },
+    { name: 'Mali', code: '+223' },
+    { name: 'Zambia', code: '+260' },
+    { name: 'Botswana', code: '+267' },
+    { name: 'Tunisia', code: '+216' },
+    { name: 'Liberia', code: '+231' },
+    { name: 'Namibia', code: '+264' },
+    { name: 'Sierra Leone', code: '+232' },
+    { name: 'Chad', code: '+235' },
+    { name: 'Benin', code: '+229' },
+    { name: 'Burkina Faso', code: '+226' },
+    { name: 'Niger', code: '+227' },
+    { name: 'Togo', code: '+228' },
+  ];
 
   return (
     <div className="register-container">
@@ -81,8 +141,32 @@ function Register() {
             required
           />
         </div>
-        <button type="submit" className="register-btn">
-          Register
+        <div className="form-group">
+          <label htmlFor="country">Country</label>
+          <select
+            id="country"
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select your country</option>
+            {countries.map((country, index) => (
+              <option key={index} value={country.name}>
+                {country.name} ({country.code})
+              </option>
+            ))}
+          </select>
+        </div>
+        
+        {error && (
+          <div className="error-message">
+            <p><strong>Error:</strong> {error}</p>
+          </div>
+        )}
+
+        <button type="submit" className="register-btn" disabled={loading}>
+          {loading ? 'Registering...' : 'Register'}
         </button>
       </form>
     </div>

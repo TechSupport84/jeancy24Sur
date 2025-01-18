@@ -1,23 +1,32 @@
 import React, { useState } from 'react';
 import '../styles/Login.css';
+import { useAuth } from '../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const { login, loading } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic (e.g., API request)
-    console.log('Login data submitted:', formData);
+    setError(''); 
+
+    if (!email || !password) {
+      return setError('Both email and password are required!');
+    }
+
+    try {
+      await login(email, password);
+      console.log('Login successful:', email);
+      navigate('/');  // Navigate to home page after login success
+    } catch (err) {
+      console.error('Login error:', err);
+      setError('Login failed. Please check your credentials and try again.');
+    }
   };
 
   return (
@@ -34,8 +43,8 @@ function Login() {
             id="email"
             name="email"
             placeholder="Your email address"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -46,15 +55,22 @@ function Login() {
             id="password"
             name="password"
             placeholder="Your password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <button type="submit" className="login-btn">
-          Login
+        {error && <div className="error-message">{error}</div>} 
+        <button type="submit" className="login-btn" disabled={loading}>
+          {loading ? 'Logging in...' : 'Login'}
         </button>
       </form>
+      <div className="auth-link-container">
+        <p className="auth-link-text">Don't have an account?</p>
+        <Link to="/Register" className="auth-link">
+          Register
+        </Link>
+      </div>
     </div>
   );
 }

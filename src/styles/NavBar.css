@@ -91,3 +91,35 @@ header {
     }
   }
   
+
+
+  /* Navbar Item */
+.nav-item {
+  list-style: none;
+  margin-right: 15px;
+}
+
+/* Styling for the username link */
+.username-link {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for username */
+.username-link:hover {
+  color: #007bff;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Focus effect to enhance accessibility */
+.username-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5);
+}

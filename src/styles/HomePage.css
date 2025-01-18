@@ -32,32 +32,23 @@
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
     color: #333;
-    padding-top: 60px; /* Adjust this value based on your navbar height */
+    padding-top: 60px; 
+   
 }
 
 .bar-content {
+    display: flex;
+    flex-direction:row;
     text-align: center;
+    justify-content: space-between;
     padding: 2rem 1rem;
     background-color: #f4f4f4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
+    padding: 2em;
+    margin-top: 2em;
 }
 
-.bar-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-.bar-content h2 {
-    font-size: 1.5rem;
-    color: #34495e;
-}
-
-.bar-content h2 span {
-    color: #1abc9c;
-    font-weight: bold;
-}
 
 .footer {
     margin-top: auto;
@@ -65,7 +56,9 @@
 
 @media (max-width: 768px) {
     .bar-content {
-        padding: 1.5rem;
+        padding:1.5rem;
+        margin-top: 5em;
+        justify-content: space-between;
     }
 
     .bar-content h1 {
@@ -76,3 +69,59 @@
         font-size: 1.2rem;
     }
 }
+
+
+.services-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Subtitle styling with highlighted part */
+  .services-subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .services-subtitle .highlight {
+    color: #007bff; /* Highlight color */
+    font-weight: 600;
+  }
+  
+  /* Styling for the link text */
+  .services-link {
+    font-size: 18px;
+  }
+  
+  .forum-link {
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  /* Styling for the icon */
+  .forum-icon {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 20px; /* Adjust icon size */
+  }
+  
+  /* Hover effect for the link */
+  .forum-link:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Focus effect for better accessibility */
+  .forum-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5);
+  }
