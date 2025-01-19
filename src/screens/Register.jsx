@@ -84,7 +84,30 @@ function Register() {
     { name: 'Burkina Faso', code: '+226' },
     { name: 'Niger', code: '+227' },
     { name: 'Togo', code: '+228' },
-  ];
+    { name: 'Guinea', code: '+224' },
+    { name: 'Mauritius', code: '+230' },
+    { name: 'Djibouti', code: '+253' },
+    { name: 'Comoros', code: '+269' },
+    { name: 'Congo (Brazzaville)', code: '+242' },
+    { name: 'Congo (Kinshasa)', code: '+243' },
+    { name: 'Gabon', code: '+241' },
+    { name: 'Equatorial Guinea', code: '+240' },
+    { name: 'Central African Republic', code: '+236' },
+    { name: 'Gambia', code: '+220' },
+    { name: 'Burundi', code: '+257' },
+    { name: 'Eritrea', code: '+291' },
+    { name: 'Lesotho', code: '+266' },
+    { name: 'Seychelles', code: '+248' },
+    { name: 'Sao Tome and Principe', code: '+239' },
+    { name: 'Somalia', code: '+252' },
+    { name: 'Guinea-Bissau', code: '+245' },
+    { name: 'Cape Verde', code: '+238' },
+    { name: 'Eswatini', code: '+268' },
+    { name: 'Mauritania', code: '+222' },
+    { name: 'Libya', code: '+218' },
+    { name: 'South Sudan', code: '+211' }
+];
+
 
   return (
     <div className="register-container">
