@@ -153,7 +153,7 @@ input:focus {
   }
   100% {
     opacity: 0;
-    transform: translateY(-100%); /* Move up (slide out) */
+    transform: translateY(-30%); /* Move up (slide out) */
   }
 }
 
