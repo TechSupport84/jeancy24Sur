@@ -8,23 +8,22 @@
   padding: 20px;
   font-family: Arial, sans-serif;
   margin-top: 8em;
-  width: 100%;
 }
 
 .header-screen {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #333;
   animation: fadeIn 1s ease-in-out infinite alternate;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #777;
   margin-bottom: 20px;
   animation: fadeIn 1.5s ease-in-out infinite alternate;
@@ -37,7 +36,7 @@
   width: 100%;
   max-width: 500px;
   background-color: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -82,15 +81,15 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 50px;
   width: 100%;
 }
 
 .panel {
   background-color: #fff;
   padding: 20px;
-  width: 100%;
-  max-width: 600px;
+  width: 50%; /* Adjust the width to make it smaller */
+  max-width: 400px; /* Adjust the max-width to make the panel even smaller */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -98,13 +97,14 @@ input:focus {
 }
 
 .panel h2 {
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Smaller text size */
   color: #333;
+  margin-bottom: 10px;
 }
 
 .panel p {
   color: #777;
-  font-size: 1rem;
+  font-size: 0.9rem; /* Smaller font size for paragraphs */
 }
 
 .ads-container {
@@ -113,15 +113,13 @@ input:focus {
   gap: 10px;
   margin-top: 30px;
   padding: 20px;
-  flex-wrap: wrap;
 }
 
 .ad-banner {
   background-color: #5c6bc0;
   color: white;
   padding: 20px;
-  width: 100%;
-  max-width: 200px;
+  width: 200px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -130,81 +128,110 @@ input:focus {
 }
 
 .ad-banner h3 {
-  font-size: 1rem;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .partenariat-form {
-    padding: 15px;
-  }
-
-  .panel h2 {
-    font-size: 1.2rem;
-  }
-
-  .ad-banner {
-    width: 100%;
-  }
-
-  .arrow-icon {
-    font-size: 1.5rem;
-  }
+  font-size: 1.2rem;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-20px); /* Move up */
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Bring to original position */
   }
 }
 
 @keyframes panelAnimation {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateY(100%); /* Start from below (slide from bottom) */
   }
   50% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0); /* Center position */
   }
   100% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(-100%); /* Move up (slide out) */
   }
 }
 
 @keyframes adBannerAnimation {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(50px); /* Start from below */
   }
   25% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Bring to original position */
   }
   50% {
     opacity: 1;
-    transform: translateY(-50px);
+    transform: translateY(-50px); /* Move up */
   }
   75% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Return to center */
   }
   100% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(50px); /* Move down */
+  }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .panel {
+    width: 90%;
+    max-width: 350px; /* Adjust to a smaller size */
+  }
+
+  .panel h2 {
+    font-size: 1.2rem;
+  }
+
+  .panel p {
+    font-size: 0.8rem;
+  }
+
+  .ads-container {
+    flex-direction: column;
+  }
+
+  .ad-banner {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .partenariat-form {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+/* Tablet View */
+@media (max-width: 768px) {
+  .panel {
+    width: 70%;
+    max-width: 500px;
+  }
+  .partenariat-container{
+    margin-top: 8em;
+  }
+  .panel h2 {
+    font-size: 1.4rem;
+  }
+
+  .panel p {
+    font-size: 0.9rem;
+  }
+
+  .ads-container {
+    gap: 15px;
+  }
+
+  .ad-banner {
+    width: 100%;
   }
 }
