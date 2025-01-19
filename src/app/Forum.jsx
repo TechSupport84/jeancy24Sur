@@ -51,7 +51,7 @@ function Forum() {
     if (posts.length > 0) {
       fetchCommentsForPosts();
     }
-  }, [posts, token]);  // Depend on posts and token
+  }, [posts, token, comment]);  // Depend on posts and token
 
   // Fetch posts on mount
   useEffect(() => {

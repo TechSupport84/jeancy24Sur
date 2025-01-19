@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleAd from '../app/GoogleAd';
-import '../styles/Application.css'; // Import a CSS file for styling
+import '../styles/Application.css';
 
 function Application() {
   return (
