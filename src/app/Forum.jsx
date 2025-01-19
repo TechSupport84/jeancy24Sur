@@ -66,7 +66,7 @@ function Forum() {
       }
     };
     getAllPosts();
-  }, [token]);
+  }, [posts, token]);
 
   const handleSectionClick = (title) => {
     setActiveSection(title);
@@ -184,7 +184,7 @@ function Forum() {
           {posts.length > 0 ? (
             posts.map((post, index) => (
               <div className="forum-post" key={index}>
-                <h2>{post.title}</h2>
+                <h2 style={{fontWeight:"bold", fontSize:20}}>{post.title}</h2>
                 <p>{post.description}</p>
                 <span>{formatDate(post.createdAt)}</span>
                 <span>{post.user.username}</span>
