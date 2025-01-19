@@ -34,12 +34,15 @@ export default function AppRouter() {
         <Route path="/ChoicePage" element={<ChoicePage />} />
         <Route path="/continueApp" element={<ContinueApp />} />
         <Route path="/Application" element={<Application />} />
+     
+        <Route path="/forum"  element={<Forum />} /> 
+    
         {user && user.role === "admin"&&(
         <Route path="/Dashboard" element={<Dashboard />} />
         )}
 
         
-        <Route path="/forum" element={<ProtectedRoute element={<Forum />} />} />
+      
 
         {/* Unprotected routes */}
         <Route path="/contact" element={<Contact />} />

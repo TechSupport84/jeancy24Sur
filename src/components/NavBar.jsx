@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/NavBar.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';  // Import Link from react-router-dom
+import { FaComments } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 
 function NavBar() {
@@ -27,19 +28,25 @@ function NavBar() {
         </ul>
 
         <ul className='left-item'>
-           {user && user.role ==="admin" &&(
+          {user && user.role === "admin" && (
             <li><a href='/Dashboard'>Dashboard</a></li>
-           )}
-            
+          )}
         </ul>
 
-        <ul className='left-item'>
+        <ul className='right-item'>
           {user && (
-            <li className="nav-item">
-              <a href="#" className="username-link">{user.username}</a>
-            </li>
+            <>
+              <li className="nav-item">
+                <a href="#" className="username-link">Hello, {user.username} !</a>
+              </li>
+
+            </>
           )}
-          <li><a href='/contact'>Contact Us</a></li>
+            <li className='nav-item'>
+             <Link to="/forum" >
+              <FaComments className="forum-icon" /> Forum
+              </Link>
+              </li>
           {user || token ? (
             <li><a href='/logout' onClick={handleLogout}>Logout</a></li>
           ) : (

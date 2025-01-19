@@ -5,10 +5,10 @@ function Footer() {
   return (
     <footer className="footer-container">
       <div className="footer-content right-content">
-        Get a Service from Us
+        Get Services from <a href='www.jeancy24sur.com'> www.jeancy24Sur.com</a> 
       </div>
       <div className="footer-content middle-content">
-        Contact Us
+        Contact Us: <a href='mailto:trainingtech84@gmail.com'>Email</a>
       </div>
       <div className="footer-content left-content">
         @2025 powered by jeancy24Sur.com LLC

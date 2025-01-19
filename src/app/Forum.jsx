@@ -4,6 +4,8 @@ import { FaComments, FaQuestionCircle, FaLightbulb, FaSmile, FaTrash } from 'rea
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import { API_URL } from '../screens/Api_Url';
+import { Link } from 'react-router-dom';
+
 
 function Forum() {
   const [activeSection, setActiveSection] = useState('General Discussion');
@@ -13,7 +15,7 @@ function Forum() {
   const [description, setDescription] = useState('');
   const [posts, setPosts] = useState([]);
   const [comment, setComment] = useState('');
-  const [comments, setComments] = useState({});  // Object to store comments for each post
+  const [comments, setComments] = useState({}); 
   const [error, setError] = useState('');
 
   const { token, user } = useAuth();
@@ -41,7 +43,7 @@ function Forum() {
           return acc;
         }, {});
         
-        setComments(newComments);  // Store comments for each post by post ID
+        setComments(newComments);  
       } catch (error) {
         console.log('Error fetching comments:', error);
         setError(error.message);
@@ -51,9 +53,8 @@ function Forum() {
     if (posts.length > 0) {
       fetchCommentsForPosts();
     }
-  }, [posts, token, comment]);  // Depend on posts and token
+  }, [posts, token, comment]);  
 
-  // Fetch posts on mount
   useEffect(() => {
     const getAllPosts = async () => {
       try {
@@ -130,7 +131,6 @@ function Forum() {
       );
       setComment(''); // Clear the comment input field
 
-      // After adding comment, refetch comments for the post
       const updatedComments = await axios.get(`${API_URL}/comment/${postId}/comments`, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -179,6 +179,13 @@ function Forum() {
           <p>{threads.find((thread) => thread.title === activeSection)?.description}</p>
         </div>
 
+        {!user && (
+          <div className="auth-message">
+            <p>Sorry, you are not authenticated and cannot post. You can Login create,  read posts and comment.</p>
+            <span><Link to={"/Login"}> Login </Link></span>
+          </div>
+        )}
+
         {/* Posts Section */}
         <div className="forum-posts">
           {posts.length > 0 ? (
@@ -190,7 +197,7 @@ function Forum() {
                 <span>{post.user.username}</span>
 
                 {/* Show delete button only for the post owner */}
-                {post.userId === user.id && (
+                {post.userId === user?.id && (
                   <div className="delete-button">
                     <button onClick={() => handleDeletePost(post.id)} className="delete-btn">
                       <FaTrash />
@@ -210,31 +217,28 @@ function Forum() {
                 </div>
 
                 <div className="comments-body">
-  <h3>Comments</h3>
-  <div className="comments-list">
-    {comments[post.id]?.map((comment, commentIndex) => (
-      <div key={commentIndex} className="comment-item">
-        <div className="comment-header">
-          <span className="comment-author">{comment.user.username}</span>
-          <span className="comment-date">{formatDate(comment.createdAt)}</span>
-        </div>
-        <p className="comment-body">{comment.commentBody}</p>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-
+                  <h3>Comments</h3>
+                  <div className="comments-list">
+                    {comments[post.id]?.map((comment, commentIndex) => (
+                      <div key={commentIndex} className="comment-item">
+                        <div className="comment-header">
+                          <span className="comment-author">{comment.user.username}</span>
+                          <span className="comment-date">{formatDate(comment.createdAt)}</span>
+                        </div>
+                        <p className="comment-body">{comment.commentBody}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))
           ) : (
-            <p>No posts available</p>
+            <p>No posts available for your to see </p>
           )}
         </div>
 
         {/* Post Creation Form */}
-        {showPostForm ? (
+        {user && showPostForm && (
           <div className="create-post">
             <h3>Create a New Post</h3>
             <form onSubmit={handleCreatePost}>
@@ -263,7 +267,10 @@ function Forum() {
               </button>
             </form>
           </div>
-        ) : (
+        )}
+
+        {/* Button to create new thread only if user is authenticated */}
+        {user && !showPostForm && (
           <div className="create-thread">
             <button onClick={handleCreatePostClick}>Create New Thread</button>
           </div>
