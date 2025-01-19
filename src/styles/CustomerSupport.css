@@ -1,0 +1,272 @@
+/* Customer Support Container */
+.customer-support-container {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 100%;
+    max-width: 350px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    opacity: 5;
+    margin-bottom: 30px;
+  }
+  
+  .customer-support-container.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Support Toggle Button (Floating) */
+  .support-toggle {
+    position: absolute;
+    top: -30px;
+    right: 15px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .support-toggle:hover {
+    background-color: #218838;
+  }
+  
+  /* Green Dot for Online Status */
+  .online-green-dot {
+    position: absolute;
+    top: 25px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #28a745;
+    border-radius: 50%;
+  }
+  
+  /* Chat Window Content */
+  .support-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 400px;
+    max-height: 400px;
+    overflow-y: hidden;  /* Prevents the content from overflowing */
+  }
+  
+  .support-content h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .support-content h3 .online-green-dot {
+    margin-left: 8px;
+    width: 12px;
+    height: 12px;
+    background-color: #28a745;
+  }
+  
+  .support-content p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Messages Container */
+  .messages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    max-height: calc(100% - 160px); /* Ensure the container is scrollable */
+    display: flex;
+    flex-direction: column-reverse;  /* Start from the bottom */
+  }
+  
+  .message {
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 80%;  /* Limit message width for better readability */
+    word-wrap: break-word;  /* Ensure text doesn't overflow */
+  }
+  
+  .user-message {
+    background-color: #e4f7e3;  /* Light Green */
+    color: #333;
+    text-align: right;
+    margin-left: auto;
+    border: 2px solid #28a745; /* Border color matching the online green dot */
+  }
+  
+  .support-message {
+    background-color: #007bff;  /* Blue */
+    color: white;
+    text-align: left;
+    border: 2px solid #0056b3; /* Darker Blue border */
+  }
+  
+  .typing-indicator {
+    font-size: 14px;
+    color: #007bff;
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  /* User Input Area */
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    resize: none;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+  
+  /* Send Button */
+  .send-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Email Link for Further Assistance */
+  .email-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .email-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  /* Small devices (phones) */
+  @media (max-width: 480px) {
+    .customer-support-container {
+      max-width: 90%;
+      width: 100%;
+      bottom: 10px;
+    }
+  
+    .support-toggle {
+      top: -18px;
+      right: 8px;
+      padding: 8px;
+    }
+  
+    .support-content h3 {
+      font-size: 16px;
+    }
+  
+    .support-content p {
+      font-size: 12px;
+    }
+  
+    .message {
+      font-size: 14px;
+      max-width: 90%;
+    }
+  
+    textarea {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .send-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
+  /* Medium devices (tablets) */
+  @media (max-width: 768px) {
+    .customer-support-container {
+      max-width: 90%;
+    }
+  
+    .support-toggle {
+      top: -20px;
+      right: 10px;
+      padding: 10px;
+    }
+  
+    .support-content h3 {
+      font-size: 17px;
+    }
+  
+    .message {
+      font-size: 15px;
+      max-width: 85%;
+    }
+  
+    textarea {
+      font-size: 15px;
+      padding: 12px;
+    }
+  
+    .send-button {
+      font-size: 15px;
+      padding: 12px;
+    }
+  }
+  
+  /* Larger devices (PC) */
+  @media (min-width: 1024px) {
+    .customer-support-container {
+      max-width: 350px;
+    }
+  
+    .support-toggle {
+      top: -25px;
+      right: 15px;
+      padding: 12px;
+    }
+  
+    .support-content h3 {
+      font-size: 18px;
+    }
+  
+    .message {
+      font-size: 16px;
+      max-width: 80%;
+    }
+  
+    textarea {
+      font-size: 16px;
+      padding: 14px;
+    }
+  
+    .send-button {
+      font-size: 16px;
+      padding: 14px;
+    }
+  }
+  

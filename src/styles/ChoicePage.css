@@ -93,3 +93,62 @@
     }
   }
   
+
+
+
+
+  .choice-page-container {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  .header-screen {
+    margin-bottom: 20px;
+  }
+  
+  .ads {
+    margin: 20px 0;
+    overflow: hidden;
+    height: 40px; /* Adjust height as needed */
+  }
+  
+  .ad-slide {
+    animation: slideIn 8s infinite;
+    padding: 10px;
+    font-size: 18px;
+    color: #007bff; /* Blue text for ads */
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    10%, 30% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+  
+  .container-question {
+    margin-top: 20px;
+  }
+  
+  .button-container {
+    margin: 10px 0;
+  }
+  
+  .separator {
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+  }
+  
