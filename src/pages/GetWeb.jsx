@@ -61,7 +61,7 @@ function GetWeb() {
     <div className="get-web-container">
       <div className="header-screen">
         <BackArrowButton onClick={() => navigate('/')} />
-        <h1>Get Web</h1>
+        <h1>Pay and Get Web</h1>
         <div className="ads"></div>
       </div>
 

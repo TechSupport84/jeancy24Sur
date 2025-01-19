@@ -61,7 +61,7 @@ function GetEcommerce() {
     <div className="get-web-container">
       <div className="header-screen">
         <BackArrowButton onClick={() => navigate('/')} />
-        <h1>Get Web</h1>
+        <h1>Get an  E-commerce </h1>
         <div className="ads"></div>
       </div>
 
@@ -74,7 +74,7 @@ function GetEcommerce() {
               setSiteName(e.target.value);
               handleInputChange();
             }}
-            placeholder="Site Name "
+            placeholder="Your E-commerce  site Name "
           />
           <input
             type="text"
