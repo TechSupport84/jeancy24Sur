@@ -11,6 +11,11 @@ function HomePage() {
         <h1 className="services-title">Services</h1>
   <h2 className="services-subtitle">
     Change Your <span className="highlight">Today</span>
+    <div className="open-dot-green">
+  <div className="dot-green"></div>
+  <span>Opened</span>
+</div>
+
   </h2>
   <span className="services-link">
     <Link to={"/forum"} className="forum-link">

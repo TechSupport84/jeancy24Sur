@@ -1,30 +1,3 @@
-/* .bar-content{
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 10px auto;
-    padding: 10px;
-    margin-top:10px;
-  
-
-}
-.bar-content>h1{
-    font-weight: bold;
-    font-family: "DM Serif Text", serif;
-    font-weight: 400;
-    font-style: normal;
-
-}
-.bar-content:hover{
-    color: #343;
-}
-.bar-content>h2{
-    font-weight: bold;
-    font-family: "DM Serif Text", serif;
-    font-weight: 400;
-    font-style: normal;
-
-} */
 
 .containert {
     display: flex;
@@ -77,8 +50,7 @@
     color: #333;
     margin-bottom: 10px;
   }
-  
-  /* Subtitle styling with highlighted part */
+
   .services-subtitle {
     font-size: 24px;
     font-weight: 400;
@@ -87,11 +59,10 @@
   }
   
   .services-subtitle .highlight {
-    color: #007bff; /* Highlight color */
+    color: #007bff; 
     font-weight: 600;
   }
-  
-  /* Styling for the link text */
+
   .services-link {
     font-size: 18px;
   }
@@ -107,21 +78,53 @@
     display: inline-flex;
     align-items: center;
   }
-  
-  /* Styling for the icon */
+
   .forum-icon {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 20px; /* Adjust icon size */
+    margin-right: 8px; 
+    font-size: 20px; 
   }
-  
-  /* Hover effect for the link */
+
   .forum-link:hover {
     background-color: #007bff;
     color: #fff;
   }
-  
-  /* Focus effect for better accessibility */
+
   .forum-link:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5);
   }
+
+
+  .open-dot-green {
+    display: flex;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #155724; /* Dark green text */
+    margin-top: 10px;
+  }
+  
+  .dot-green {
+    width: 10px;
+    height: 10px;
+    background-color: #28a745; /* Green color */
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

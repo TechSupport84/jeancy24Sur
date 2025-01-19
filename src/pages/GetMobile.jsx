@@ -16,6 +16,7 @@ function GetMobile() {
   const [selectedOption, setSelectedOption] = useState('');
   const { user, token } = useAuth();
   const [error, setError] = useState('');
+  const [message, setMessage] = useState(''); 
 
   const handleSelectionChange = (event) => {
     setSelectedOption(event.target.value); // This is the correct way to handle selection change
@@ -48,13 +49,17 @@ function GetMobile() {
       setSiteName(" ");
       setSelectedOption(" ");
       console.log('Order created!');
+      setMessage('Thank you, your command has been placed successfully. One of our Customer support will contact you shortly.');
+      setError('');
     } catch (error) {
       setError('An error occurred. Please try again later.');
+      setMessage(''); 
     }
   };
 
   const handleInputChange = () => {
-    if (error) setError(''); // Clear error when user starts typing again
+    if (error) setError('');
+    if (message) setMessage('');  // Clear error when user starts typing again
   };
 
   return (
@@ -66,6 +71,11 @@ function GetMobile() {
       </div>
 
       <form className="get-web-form" onSubmit={handledCreateCommand}>
+      {message && (
+          <div className="success-message">
+            <span>{message}</span>
+          </div>
+        )}
         <div className="two-left-input">
           <input
             type="text"
