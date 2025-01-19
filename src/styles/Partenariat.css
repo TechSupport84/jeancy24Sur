@@ -88,8 +88,8 @@ input:focus {
 .panel {
   background-color: #fff;
   padding: 20px;
-  width: 50%; /* Adjust the width to make it smaller */
-  max-width: 400px; /* Adjust the max-width to make the panel even smaller */
+  width: 50%;
+  max-width: 400px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -97,14 +97,14 @@ input:focus {
 }
 
 .panel h2 {
-  font-size: 1.5rem; /* Smaller text size */
+  font-size: 1.5rem; 
   color: #333;
   margin-bottom: 10px;
 }
 
 .panel p {
   color: #777;
-  font-size: 0.9rem; /* Smaller font size for paragraphs */
+  font-size: 0.9rem; 
 }
 
 .ads-container {
@@ -134,57 +134,57 @@ input:focus {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-20px); /* Move up */
+    transform: translateY(-20px); 
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* Bring to original position */
+    transform: translateY(0); 
   }
 }
 
 @keyframes panelAnimation {
   0% {
     opacity: 0;
-    transform: translateY(100%); /* Start from below (slide from bottom) */
+    transform: translateY(100%); 
   }
   50% {
     opacity: 1;
-    transform: translateY(0); /* Center position */
+    transform: translateY(0); 
   }
   100% {
     opacity: 0;
-    transform: translateY(-30%); /* Move up (slide out) */
+    transform: translateY(-30%); 
   }
 }
 
 @keyframes adBannerAnimation {
   0% {
     opacity: 0;
-    transform: translateY(50px); /* Start from below */
+    transform: translateY(50px);
   }
   25% {
     opacity: 1;
-    transform: translateY(0); /* Bring to original position */
+    transform: translateY(0); 
   }
   50% {
     opacity: 1;
-    transform: translateY(-50px); /* Move up */
+    transform: translateY(-50px); 
   }
   75% {
     opacity: 1;
-    transform: translateY(0); /* Return to center */
+    transform: translateY(0); 
   }
   100% {
     opacity: 0;
-    transform: translateY(50px); /* Move down */
+    transform: translateY(50px); 
   }
 }
 
-/* Mobile View */
+
 @media (max-width: 600px) {
   .panel {
     width: 90%;
-    max-width: 350px; /* Adjust to a smaller size */
+    max-width: 350px; 
   }
 
   .panel h2 {
@@ -210,7 +210,7 @@ input:focus {
   }
 }
 
-/* Tablet View */
+
 @media (max-width: 768px) {
   .panel {
     width: 70%;
@@ -234,4 +234,26 @@ input:focus {
   .ad-banner {
     width: 100%;
   }
+}
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
+.success-message {
+  background-color: #d4edda; 
+  color: #155724; 
+  padding: 10px 20px;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+  margin-bottom: 10px;
 }

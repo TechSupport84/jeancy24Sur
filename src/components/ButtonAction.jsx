@@ -4,7 +4,7 @@ import '../styles/ButtonAction.css';
 function ButtonAction({title, onClick}) {
   return (
     <div>
-      <button  onClick={onClick}className="action-button">{title} </button>
+      <button type="submit" onClick={onClick}className="action-button">{title} </button>
     </div>
   );
 }
