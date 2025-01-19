@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const URL_API = "http://localhost:5000/api";
+  const URL_API = "https://jeancy24sur-b8232b5db48b.herokuapp.com/api";
 
   const handleError = (errorData) => {
     if (errorData.message) {
