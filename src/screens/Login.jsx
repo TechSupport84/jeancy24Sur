@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); 
+    setError('');
 
     if (!email || !password) {
       return setError('Both email and password are required!');
@@ -22,11 +23,15 @@ function Login() {
     try {
       await login(email, password);
       console.log('Login successful:', email);
-      navigate('/');  // Navigate to home page after login success
+      navigate('/'); // Navigate to home page after login success
     } catch (err) {
       console.error('Login error:', err);
       setError('Login failed. Please check your credentials and try again.');
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword); // Toggle between `true` and `false`
   };
 
   return (
@@ -50,17 +55,36 @@ function Login() {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div style={{ position: 'relative' }}>
+            <input
+              type={showPassword ? 'text' : 'password'} // Change input type based on state
+              id="password"
+              name="password"
+              placeholder="Your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              style={{ paddingRight: '50px' }} // Add space for the toggle button
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              style={{
+                position: 'absolute',
+                right: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                border: 'none',
+                background: 'none',
+                cursor: 'pointer',
+                color: '#555',
+              }}
+            >
+              {showPassword ? 'Hide' : 'Show'}
+            </button>
+          </div>
         </div>
-        {error && <div className="error-message">{error}</div>} 
+        {error && <div className="error-message">{error}</div>}
         <button type="submit" className="login-btn" disabled={loading}>
           {loading ? 'Logging in...' : 'Login'}
         </button>
@@ -76,3 +100,4 @@ function Login() {
 }
 
 export default Login;
+

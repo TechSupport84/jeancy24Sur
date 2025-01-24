@@ -11,6 +11,8 @@ function Register() {
     confirmPassword: '',
     country: '',
   });
+  const [showPassword, setShowPassword] = useState(false); // Toggle for password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Toggle for confirmPassword visibility
   const navigate = useNavigate();
   const [error, setError] = useState('');
 
@@ -50,7 +52,6 @@ function Register() {
       setError('We encountered an issue while creating your account. Please try again later.');
     }
   };
-
   const countries = [
     { name: 'Nigeria', code: '+234' },
     { name: 'South Africa', code: '+27' },
@@ -106,8 +107,7 @@ function Register() {
     { name: 'Mauritania', code: '+222' },
     { name: 'Libya', code: '+218' },
     { name: 'South Sudan', code: '+211' }
-];
-
+  ];
 
   return (
     <div className="register-container">
@@ -142,27 +142,65 @@ function Register() {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Your password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div style={{ position: 'relative' }}>
+            <input
+              type={showPassword ? 'text' : 'password'} // Toggle visibility
+              id="password"
+              name="password"
+              placeholder="Your password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              style={{ paddingRight: '50px' }} // Space for the toggle button
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              style={{
+                position: 'absolute',
+                right: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                border: 'none',
+                background: 'none',
+                cursor: 'pointer',
+                color: '#555',
+              }}
+            >
+              {showPassword ? 'Hide' : 'Show'}
+            </button>
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="Confirm your password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
+          <div style={{ position: 'relative' }}>
+            <input
+              type={showConfirmPassword ? 'text' : 'password'} // Toggle visibility
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              style={{ paddingRight: '50px' }} // Space for the toggle button
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              style={{
+                position: 'absolute',
+                right: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                border: 'none',
+                background: 'none',
+                cursor: 'pointer',
+                color: '#555',
+              }}
+            >
+              {showConfirmPassword ? 'Hide' : 'Show'}
+            </button>
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="country">Country</label>
