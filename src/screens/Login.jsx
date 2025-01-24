@@ -64,7 +64,7 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              style={{ paddingRight: '50px' }} // Add space for the toggle button
+              style={{ paddingRight: '50px' }} 
             />
             <button
               type="button"
