@@ -1,0 +1,85 @@
+
+.success-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .success-card {
+    background: #ffffff;
+    color: #4caf50;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: scaleUp 0.7s ease-in-out;
+  }
+  
+
+  .success-icon {
+    font-size: 4rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+    animation: bounce 1.5s infinite ease-in-out;
+  }
+  
+  .success-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  .success-message {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .success-button {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .success-button:hover {
+    background: #43a047;
+    transform: scale(1.05);
+  }
+  
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.8);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  

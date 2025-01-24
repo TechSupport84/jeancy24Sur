@@ -3,6 +3,7 @@ import { FaBox, FaUsers, FaShoppingCart, FaUser } from 'react-icons/fa';
 import '../styles/Dashboard.css'; // Import your custom CSS styles
 import Orders from './Orders'; // Ensure the Orders component is properly imported
 import Users from './Users';
+import Applicant from './Applicant';
 
 function Dashboard() {
     const [view, setView] = useState(""); // Initially, no view is selected
@@ -18,9 +19,9 @@ function Dashboard() {
                     <h2>Admin Panel</h2>
                 </div>
                 <nav className="sidebar-nav">
-                    <a href="#products" className="sidebar-link" onClick={() => handleViewChange("products")}>
+                    <a href="#Applications" className="sidebar-link" onClick={() => handleViewChange("Applications")}>
                         <FaBox className="sidebar-icon" />
-                        <span>Products</span>
+                        <span>Applications</span>
                     </a>
                     <a href="#users" className="sidebar-link" onClick={() => handleViewChange("users")}>
                         <FaUser className="sidebar-icon" />
@@ -40,16 +41,17 @@ function Dashboard() {
             <main className="main-content">
                 <div className="dashboard-header">
                     <h2>Admin Dashboard</h2>
-                    <p>Manage your products, users, orders, and clients efficiently.</p>
+                    <p>Manage your Applications, users, orders, and clients efficiently.</p>
                 </div>
 
                 {/* Conditionally render sections based on the state */}
-                {view === "products" && (
-                    <section id="products" className="dashboard-card">
+                {view === "Applications" && (
+                    <section id="Applications" className="dashboard-card">
                         <FaBox className="dashboard-icon" />
-                        <h3>Products</h3>
-                        <p>Manage your products, stock, and pricing.</p>
-                        <button className="dashboard-btn">View Products</button>
+                        <h3>Applications</h3>
+                        <p>Manage your Applications, stock, and pricing.</p>
+                        <button className="dashboard-btn">View Applications</button>
+                         <Applicant/>
                     </section>
                 )}
 

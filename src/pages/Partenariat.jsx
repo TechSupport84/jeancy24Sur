@@ -35,7 +35,7 @@ function Partenariat() {
       setEmail("");
       setBussinessDomain("");
       setGoal("")
-      setMessage('Thank you, your command has been placed successfully. One of our Customer support will contact you shortly.');
+      setMessage('Thank you, your Demand to be on of our partner  has been placed successfully. One of our Customer support will contact you shortly via your email.');
       setError('');
     } catch (error) {
       setError('An error occurred. Please try again later.');

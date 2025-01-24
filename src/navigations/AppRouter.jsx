@@ -16,6 +16,7 @@ import { useAuth } from '../context/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
 import Forum from '../app/Forum';
 import Dashboard from '../dashboard/Dashboard';
+import SuccessApplication from '../components/SucessApplication';
 
 export default function AppRouter() {
   const { user } = useAuth();
@@ -34,7 +35,7 @@ export default function AppRouter() {
         <Route path="/ChoicePage" element={<ChoicePage />} />
         <Route path="/continueApp" element={<ContinueApp />} />
         <Route path="/Application" element={<Application />} />
-     
+        <Route path='/success-app' element={<SuccessApplication/>}/>
         <Route path="/forum"  element={<Forum />} /> 
     
         {user && user.role === "admin"&&(
