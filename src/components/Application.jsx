@@ -106,6 +106,27 @@ function Application() {
           <h2>Application Details</h2>
           <p>Welcome to the application section. Here, you can find various details about the application process and other relevant information.</p>
         </section>
+        <div className="jobs-details">
+  <h2 className="job-title">Software Developer</h2>
+  <p className="job-description">
+    Build cutting-edge web and mobile applications using modern technologies like Node.js, Python, React, and React Native. Collaborate in a dynamic, growth-oriented environment. This position offers both remote and on-site opportunities, flexible schedules, and competitive compensation.
+  </p>
+  <ul className="job-info">
+    <li><strong>Job Type:</strong> Full-Time</li>
+    <li><strong>Location:</strong> Remote</li>
+    <li><strong>Experience Level:</strong> Mid-Level to Senior</li>
+    <li><strong>Technologies:</strong> Node.js, Python, React, React Native</li>
+  </ul>
+  <a 
+    href="https://jeancy24sur.com/Application" 
+    className="apply-link"
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    Apply Now
+  </a>
+</div>
+
 
         <section className="application-form">
           <h2>Apply Now</h2>
