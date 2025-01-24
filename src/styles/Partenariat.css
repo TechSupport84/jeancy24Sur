@@ -257,3 +257,8 @@ input:focus {
   animation: fadeIn 0.5s ease-in-out;
   margin-bottom: 10px;
 }
+@media (max-width: 768px) {
+  .partenariat-container {
+   margin-top: 12em;
+  }
+}

@@ -173,6 +173,11 @@ function Application() {
                 <option value="javascript">JavaScript</option>
                 <option value="python">Python</option>
                 <option value="java">Java</option>
+                <option value="React">React</option>
+                <option value="react-native">React-native</option>
+                <option value="django">Django</option>
+                <option value="nodejs">Node js</option>
+                <option value="c#">C#</option>
                 <option value="c++">C++</option>
                 <option value="php">PHP</option>
                 <option value="other">Other</option>
@@ -190,7 +195,7 @@ function Application() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="cover-letter">Paste a Loom Link</label>
+              <label htmlFor="cover-letter">Record a short video (1 to 2 minutes) using Loom or any other platform, and paste the link here. </label>
               <input
                 type="url"
                 id="cover-letter"
@@ -202,7 +207,7 @@ function Application() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Additional Message</label>
+              <label htmlFor="message">Additional Informations *</label>
               <textarea
                 id="message"
                 name="message"
