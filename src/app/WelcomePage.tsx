@@ -1,10 +1,9 @@
-import { FcGoogle } from "react-icons/fc";
-import { API_URL } from "../constants/API_URL";
+
 
 function WelcomePage() {
 
     const handleLogin = ()=>{
-        window.location.href = `${API_URL}/auth/google`
+        window.location.href = "/home"
     }
   return (
     <div className="w-screen h-screen p-0 m-0 overflow-hidden relative">
@@ -20,7 +19,7 @@ function WelcomePage() {
         {/* Description Box */}
         <div className="w-full max-w-lg mb-6 sm:mb-8 bg-black/50 p-4 sm:p-6 rounded-xl backdrop-blur-md">
           <h1 className="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">
-            Welcome to X-Web
+            Welcome to Learn with Jeancy 
           </h1>
           <p className="text-base sm:text-lg leading-relaxed">
             X-Web is your gateway to mastering programming languages and web technologies.
@@ -33,8 +32,7 @@ function WelcomePage() {
           className="flex items-center justify-center gap-3 bg-white/90 text-gray-800 w-full max-w-xs sm:max-w-sm px-5 py-3 rounded-xl 
           shadow-md hover:bg-white active:scale-95 active:bg-gray-200 transition-all duration-200 font-semibold text-base sm:text-lg"
         >
-          <FcGoogle size={22} />
-          Continue with Google
+            Continue
         </button>
       </div>
 

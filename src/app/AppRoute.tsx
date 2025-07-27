@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import WelcomePage from "./WelcomePage";
+
 import useAuth from "../hooks/useAuth";
 import NavBar from "../components/NavBar";
+
 
 function AppRoute() {
   const { user, loading } = useAuth();
@@ -13,25 +14,9 @@ function AppRoute() {
 
   return (
     <Router>
+      <NavBar/>
       <Routes>
-        <Route
-          path="/"
-          element={user ? <Navigate to="/home" replace /> : <WelcomePage />}
-        />
-        <Route
-          path="/home"
-          element={
-            user ? (
-              <>
-                <NavBar />
-                <HomePage />
-              </>
-            ) : (
-              <Navigate to="/" replace />
-            )
-          }
-        />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/" element ={<HomePage />}/>
       </Routes>
     </Router>
   );
