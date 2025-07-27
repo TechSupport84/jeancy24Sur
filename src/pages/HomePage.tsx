@@ -23,6 +23,15 @@ function HomePage() {
       {/* Section des cours JavaScript */}
       <div className="text-left">
         <h2 className="text-3xl font-bold underline mb-4 text-center text-sky-900">Cours de Base JavaScript</h2>
+      <div className="mt-4 text-center">
+        <a 
+          href="/Tout-sur-le-Javascript.pdf" 
+          download 
+          className="inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+        >
+          Téléchargez le Syllabus
+        </a>
+      </div>
 
         {/* 1. Hello World */}
         <h3 className="text-2xl font-semibold mb-2 text-sky-800">1. Hello World</h3>
