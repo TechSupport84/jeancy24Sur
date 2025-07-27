@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 
 import useAuth from "../hooks/useAuth";
 import NavBar from "../components/NavBar";
+import LearnEnglish from "../pages/LearnEnglish";
 
 
 function AppRoute() {
@@ -17,6 +18,7 @@ function AppRoute() {
       <NavBar/>
       <Routes>
         <Route path="/" element ={<HomePage />}/>
+        <Route path ="/english" element ={<LearnEnglish/>}/>
       </Routes>
     </Router>
   );

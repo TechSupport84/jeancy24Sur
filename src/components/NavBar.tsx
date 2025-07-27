@@ -16,11 +16,11 @@ const NavBar: React.FC = () => {
 
             {/* Desktop Links */}
             <div className="hidden md:flex space-x-8 text-gray-700 font-medium items-center">
-              <a href="#" className="flex items-center gap-2 hover:text-blue-600">
+              <a href="/" className="flex items-center gap-2 hover:text-blue-600">
                 <Home className="text-blue-600" size={18} /> Home
               </a>
-              <a href="#" className="flex items-center gap-2 hover:text-blue-600">
-                <Briefcase className="text-blue-600" size={18} /> Services
+              <a href="/english" className="flex items-center gap-2 hover:text-blue-600">
+                <Briefcase className="text-blue-600" size={18} /> English
               </a>
               <a href="#" className="flex items-center gap-2 hover:text-blue-600">
                 <Info className="text-blue-600" size={18} /> About
@@ -46,11 +46,11 @@ const NavBar: React.FC = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-white px-4 pb-4 space-y-2">
-            <a href="#" className="flex items-center gap-2 py-2 text-gray-700 hover:text-blue-600">
+            <a href="/" className="flex items-center gap-2 py-2 text-gray-700 hover:text-blue-600">
               <Home className="text-blue-600" size={18} /> Home
             </a>
             <a href="#" className="flex items-center gap-2 py-2 text-gray-700 hover:text-blue-600">
-              <Briefcase className="text-blue-600" size={18} /> Services
+              <Briefcase className="text-blue-600" size={18} /> English
             </a>
             <a href="#" className="flex items-center gap-2 py-2 text-gray-700 hover:text-blue-600">
               <Info className="text-blue-600" size={18} /> About
