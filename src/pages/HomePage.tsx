@@ -6,9 +6,9 @@ function HomePage() {
         <button className="border-2 border-sky-700 px-5 py-2 rounded-2xl hover:bg-sky-900 hover:text-white transition duration-300">
           JavaScript
         </button>
-        <button className="border-2 border-green-700 px-5 py-2 rounded-2xl hover:bg-green-900 hover:text-white transition duration-300">
+        <a href="/python" className="border-2 border-green-700 px-5 py-2 rounded-2xl hover:bg-green-900 hover:text-white transition duration-300">
           Python
-        </button>
+        </a>
         <button className="border-2 border-orange-500 px-5 py-2 rounded-2xl hover:bg-orange-700 hover:text-white transition duration-300">
           HTML5
         </button>
