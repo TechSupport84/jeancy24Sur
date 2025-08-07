@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 
 import NavBar from "../components/NavBar";
+import FooterPage from "../components/FooterPage";
 
 
 
@@ -17,6 +18,7 @@ function AppRoute() {
       
       
       </Routes>
+      <FooterPage/>
     </Router>
   );
 }
