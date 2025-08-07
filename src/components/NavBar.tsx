@@ -19,9 +19,6 @@ const NavBar: React.FC = () => {
               <a href="/" className="flex items-center gap-2 hover:text-blue-600">
                 <Home className="text-blue-600" size={18} /> Home
               </a>
-              <a href="/english" className="flex items-center gap-2 hover:text-blue-600">
-                <Briefcase className="text-blue-600" size={18} /> English
-              </a>
               <a href="#" className="flex items-center gap-2 hover:text-blue-600">
                 <Info className="text-blue-600" size={18} /> About
               </a>
